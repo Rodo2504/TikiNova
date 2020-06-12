@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tikinova-a9918": {
+      "hosting": {
+        "ProyectoFinalTikiNova": [
+          "tikinova-a9918"
+        ]
+      }
+    }
+  }
+}

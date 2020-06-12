@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark top-fixed">
+    <a class="navbar-brand" href="#"><img src="../../../assets/logo.png" width="120px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto" >
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['home']">Inicio <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['about']">Acerca De</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['contacto']">Contacto</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['preguntas']">Preguntas Frecuentes</a>
+        </li>
+      </ul>
+      <button mat-icon-button [matMenuTriggerFor]="appMenu" color= "acento"  >
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #appMenu="matMenu">
+        <button mat-menu-item>Iniciar</button>
+        <button mat-menu-item>Registrarse</button>
+      </mat-menu>
+      <a mat-button href="https://www.instagram.com/?hl=es-la" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a mat-button href="https://web.facebook.com/?_rdc=1&_rdr" target="_blank"><i class="fab fa-facebook"></i></a>
+    </div>
+  </nav>

@@ -1,0 +1,16 @@
+.item1-2{
+    display: flex;
+    justify-content: center;
+}
+.item2{
+    background-color: cadetblue;
+}
+.item3{
+    width: 100%;
+    padding: 25px;
+}
+p{
+    text-align: justify;
+    font-size: 22px;
+    font-family: cursive;
+}
