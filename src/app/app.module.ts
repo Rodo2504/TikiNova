@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth/auth.service';
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -7,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
@@ -14,6 +16,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { PreguntasComponent } from './components/preguntas/preguntas.component';
 import { TablaComponent } from './components/tabla/tabla.component';
+import { LoginComponent } from './components/auth/login/login.component';
 
 /* Componentes Angular Material */
 import {MatDividerModule} from '@angular/material/divider';
@@ -27,6 +30,10 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
+import {MatTabsModule} from '@angular/material/tabs';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './components/auth/register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -37,13 +44,17 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     AboutComponent,
     ContactoComponent,
     PreguntasComponent,
-    TablaComponent
+    TablaComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    FormsModule,
+    ReactiveFormsModule,
     MatDividerModule,
     MatExpansionModule,
     MatMenuModule,
@@ -54,8 +65,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatRadioModule,
     MatCheckboxModule,
     MatInputModule,
+    MatTabsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

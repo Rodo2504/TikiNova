@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-md-6 mx-auto mt-5">
+        <mat-tab-group>
+            <mat-tab label="Registro">
+              <div class="card">
+                <div class="card-body">
+                  <h1 class="text-center">Crear una Cuenta</h1>
+                  <form [formGroup]="registerform" (ngSubmit)="onRegister()">
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <input matInput type="email" class="form-control" formControlName="email" name="email" id="email"
+                      [class.is-invalid] = "registerform.get('email').invalid && registerform.get('email').touched">
+                      <div *ngIf="registerform.controls['email'].invalid && (registerform.controls['email'].dirty || registerform.controls['email'].touched)"
+                      class="invalid-feedback">
+                        Ingresa un email correcto.
+                        <div *ngIf="registerform.controls['email'].errors.required">
+                          El email debe ser requerido
+                        </div>
+                      </div>
+                  </div>
+                    <div class="form-group">
+                      <label for="password">Contraseña: (minimo 4 caracteres)</label>
+                      <input type="password" class="form-control" formControlName="password"  name="password" id="password"
+                      [class.is-invalid] = "registerform.get('password').invalid && registerform.get('password').touched">
+                      <div *ngIf="registerform.controls['password'].invalid && (registerform.controls['password'].dirty || registerform.controls['password'].touched)"
+                      class="invalid-feedback">
+                        Debe tener al menos 4 caracteres
+                        <div *ngIf="registerform.controls['password'].errors.required">
+                          Se necesita una contraseña
+                        </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="rpassword">Repite la Contraseña:</label>
+                    <input type="password" class="form-control" formControlName="rpassword"  name="rpassword" id="rpassword" (keyup)="comparar()"
+                    [class.is-invalid] = "registerform.get('rpassword').invalid && registerform.get('rpassword').touched">
+                    <div *ngIf="registerform.controls['rpassword'].invalid && (registerform.controls['rpassword'].dirty || registerform.controls['rpassword'].touched)"
+                    class="invalid-feedback">
+                      Necesitas llenar este campo.
+                    </div>
+                    <ng-container *ngIf="!igual">
+                      <div class="badge badge-danger">La contraseña no es la misma</div>
+                   </ng-container>
+                </div>
+                  <div *ngIf="!igual else habilitar">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="true">Crear Cuenta</button> 
+                  </div>
+                  <ng-template #habilitar>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="registerform.invalid">Crear Cuenta</button> 
+                  </ng-template>
+                                
+                  </form>
+                </div>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+    </div>
+</div>
