@@ -5,17 +5,20 @@
       </div>
       <div class="col-lg">
         <b><h2 style="font-size: 25px; color: rgba(220, 20, 60, 0.63);">Acerca de TikiNova</h2></b>
-        <p style="text-align: justify; font-family: cursive; font-size: 20px;">
+        <p #texto style="text-align: justify; font-family: cursive; font-size: 20px;">
             Somos un Restaurante Bar Temático.
-            <br>   
-            <br>         
-            Contamos con Amplias zonas verdes para Picnic y 4 zonas con mesas bajo techo, 
-            se permite el ingreso de mascotas (zona verde), 200 parqueaderos, Lago de Pesca, 
+            <br>
+            <br>
+            Contamos con Amplias zonas verdes para Picnic y 4 zonas con mesas bajo techo,
+            se permite el ingreso de mascotas (zona verde), 200 parqueaderos, Lago de Pesca,
             Juegos Infantiles, Animalitos.
             <br> <br>
             Nuestro Menú tiene variedad de productos Entradas, Carnes a la Parrilla, Pollo, Pescado, Mariscos, Costillas,
             Alitas, Brochetas, Hamburguesa, sándwich, Picadas, Opciones Vegetarianas, postres y mucho más!
         </p>
+        <button (click)="start(texto.innerHTML)"> start</button>
+        <button (click)="pause()"> pause </button>
+        <button (click)="resume()"> resume </button>
       </div>
     </div>
     <div class="row mt-5"  style="background-color: cadetblue;">
