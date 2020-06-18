@@ -13,7 +13,7 @@
                 </mat-card-header>
                 <mat-card-content>
                     <mat-divider></mat-divider>
-                    <form action="">
+                    <form>
                         <p>
                         <label for="nom">
                             Nombre:
@@ -35,9 +35,28 @@
                             <textarea id="msj" cols="50" rows="8" style="width: 100%;"></textarea>
                         </label>
                         </p>
-                        <button type="button" class="btn btn-primary">Enviar</button>
+                        <input type="submit" value="Enviar" class="btn btn-primary">
                     </form>
                 </mat-card-content>
             </mat-card>
         </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $('form').on('submit', (e)=>{
+    e.preventDefault();
+
+    const email=$('#correo').val().trim();
+    const subject=$('#nom').val().trim();
+    const text =$('#msj').val().trim();
+    const data = {
+      email,
+      subject,
+      text
+    };
+
+    $.post('/contacto', data, function(){
+      consol.log('El servidor recibio los datos');
+    });
+  });
+</script>
