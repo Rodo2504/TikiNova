@@ -40,10 +40,10 @@ export class AboutComponent {
     }
   }
 
-  start(texto:string){
+  start(texto1:string,texto2:string,texto3:string,texto4:string){
 
-    this.html = texto;
-    console.log(texto);
+    this.html = texto1+texto2+texto3+texto4;
+    //console.log(texto);
 
 
       this.speech.speak({

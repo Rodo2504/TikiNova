@@ -3,16 +3,28 @@
         <div class="col-lg">
             <h1 style="text-shadow:2px 2px cadetblue; text-align: center; width: 100%; font-size: 30px; font-family: cursive;">"Te lo llevamos en caliente"</h1>
             <br>
-            <h1 style="background-color: burlywood; width: 120px; font-family: cursive;">Conócenos</h1>
+            <h1 #textoh style="background-color: burlywood; width: 120px; font-family: cursive;">¿Quienes somos?</h1>
             <br>
-            <p>
+            <p #textoh1>
                 Somos un restaurante tradicional TIKI, con el objetivo principal
                 de mostrar la variedad de platillos que existen de este estilo.
                 En esta página web ofrecemos la oportunidad de realizar pedidos en linea.
                 Contamos con algunos descuentos.
             </p>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary-dark">
+                <input type="radio" name="options" id="option1" autocomplete="off" (click)="start(textoh.innerHTML,textoh1.innerHTML)">
+                <i class="fas fa-assistive-listening-systems fa-3x" ></i>
+              </label>
+              <label class="btn btn-secondary-dark">
+                <input type="radio" name="options" id="option2" autocomplete="off" (click)="pause()"> <i class="fas fa-pause-circle fa-3x" ></i>
+              </label>
+              <label class="btn btn-secondary-dark">
+                <input type="radio" name="options" id="option3" autocomplete="off"  (click)="resume()"> <i class="fas fa-play-circle fa-3x"></i>
+              </label>
+            </div>
         </div>
-        <div class="col-lg item1-2">                
+        <div class="col-lg item1-2">
             <img src="../../../assets/tiki.jpg" width="50%" alt="">
         </div>
     </div>
