@@ -34,6 +34,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/auth/register/register.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -65,7 +67,8 @@ import { RegisterComponent } from './components/auth/register/register.component
     MatRadioModule,
     MatCheckboxModule,
     MatInputModule,
-    MatTabsModule
+    MatTabsModule,
+    HttpClientModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

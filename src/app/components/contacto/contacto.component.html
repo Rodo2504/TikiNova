@@ -18,45 +18,27 @@
                         <label for="nom">
                             Nombre:
                             <br>
-                            <input type="text" id="nom" style="width: 100%;">
+                            <input type="text" #nom style="width: 100%;">
                         </label>
                         </p>
                         <p>
                         <label for="correo">
                             Correo:
                             <br>
-                            <input type="text" id="correo" style="width: 100%;">
+                            <input type="text" #correo style="width: 100%;">
                         </label>
                         </p>
                         <p>
                         <label for="msj">
                             Mensaje:
                             <br>
-                            <textarea id="msj" cols="50" rows="8" style="width: 100%;"></textarea>
+                            <textarea #msj cols="50" rows="8" style="width: 100%;"></textarea>
                         </label>
                         </p>
-                        <input type="submit" value="Enviar" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary" (click)="sendto(correo.value,nom.value,msj.value)">Enviar</button>
                     </form>
                 </mat-card-content>
             </mat-card>
         </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-  $('form').on('submit', (e)=>{
-    e.preventDefault();
 
-    const email=$('#correo').val().trim();
-    const subject=$('#nom').val().trim();
-    const text =$('#msj').val().trim();
-    const data = {
-      email,
-      subject,
-      text
-    };
-
-    $.post('/contacto', data, function(){
-      consol.log('El servidor recibio los datos');
-    });
-  });
-</script>
