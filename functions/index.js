@@ -5,22 +5,17 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app= express();
-app.use(cors());
-app.use(function(req,res, next){
-    res.header('Access-Control-Allow-Origin',"*");
+app.use(cors({origin:true}));
+//app.use(function(req,res, next){
+    //res.header('Access-Control-Allow-Origin',"*");
 //    res.header('Access-Control-Allow-Headers',"Origin, X-Requested-With, Content-Type, Accept");
   //  res.header('Access-Control-Allow-Origin:', 'http://localhost:4200/');
     //res.header('Access-Control-Allow-Origin:', 'http://localhost:5001/tikinova-a9918/us-central1/mailer');
-    next();
-});
-app.post('/mailer',(req,res)=>{
-    const {body} = req;
-    const isValidMessage = body.email && body.subject && body.message;
+    //next();
+//});
+app.post('/',(req,res)=>{
+  const { email,subject,message } = req.body;
 
-    if(!isValidMessage){
-        return res.status(400).send({message: ' invalid request'});
-
-    }
 
     const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -31,10 +26,10 @@ app.post('/mailer',(req,res)=>{
     });
 
     const mailOptions = {
-        from: body.email,
-        to: 'tikinova123@gmail.com',
-        subject: body.subject,
-        text: body.message
+      from: email,
+      to: 'tikinova123@gmail.com',
+      subject: subject,
+      text: message+" from: "+email
 
     };
 
