@@ -28,7 +28,7 @@ app.post('/',(req,res)=>{
     const mailOptions = {
       from: email,
       to: 'tikinova123@gmail.com',
-      subject: subject,
+      subject: subject+" te esta contactando.",
       text: message+" from: "+email
 
     };
