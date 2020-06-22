@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import Speech from 'speak-tts';
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

@@ -14,3 +14,9 @@ p{
     font-size: 22px;
     font-family: cursive;
 }
+.cupones {
+  max-width: 400px;
+}
+.miniLogo{
+  background-size: cover;
+}

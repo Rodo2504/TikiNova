@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmailService } from '../../services/contactEmail/email.service';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-contacto',
   templateUrl: './contacto.component.html',
@@ -8,10 +9,19 @@ import { FormGroup } from '@angular/forms';
 })
 export class ContactoComponent implements OnInit {
   enviadoStatus:any;
-
-  constructor(public emailservice:EmailService) { }
+  contactForm;
+  constructor(public emailservice:EmailService,private formB: FormBuilder) {
+    this.contactForm = this.formB.group({
+      nom: [''],
+      correo: ['', [
+        Validators.required,
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
+      msj: ['']
+   });
+  }
   sendto(email:string,subject:string,text:string){
     console.log("from:"+email ,subject+" te esta contactando.",text);
+    this.contactForm.reset()
     this.emailservice.enviarRes(email,subject,text).subscribe((res)=>{
       console.log(res);
 

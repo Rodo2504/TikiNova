@@ -13,28 +13,33 @@
                 </mat-card-header>
                 <mat-card-content>
                     <mat-divider></mat-divider>
-                    <form  (ngSubmit)="sendto(correo.value,nom.value,msj.value); ">
-                        <p>
+                    <form [formGroup]="contactForm" (ngSubmit)="sendto(correo.value,nom.value,msj.value); ">
+
 
                             <br>
-                            <label for="nom">Nombre:</label><input type="text" #nom style="width: 100%;">
-
-                        </p>
-                        <p>
+                            <label for="nom">Nombre:</label>
+                            <input type="text" #nom style="width: 100%;" formControlName="nom" required>
 
                             <br>
-                            <label for="correo">Correo:</label><input type="text" #correo style="width: 100%;" name="correo">
-
-                        </p>
-                        <p>
+                            <label for="correo">Correo:</label>
+                            <input type="text" #correo style="width: 100%;" name="correo" formControlName="correo"
+                             [class.is-invalid] = "contactForm.get('correo').invalid && contactForm.get('correo').touched" class="form-control">
+                             <div *ngIf="contactForm.controls['correo'].invalid && (contactForm.controls['correo'].dirty || contactForm.controls['correo'].touched)"
+                             class="invalid-feedback">
+                               Ingresa un email correcto.
+                               <div *ngIf="contactForm.controls['correo'].errors.required">
+                                 El email debe ser requerido
+                               </div>
+                             </div>
 
                             <br>
-                            <label for="msj">Mensaje:</label><textarea #msj cols="50" rows="8" style="width: 100%;" name="msj"></textarea>
+                            <label for="msj">Mensaje:</label>
+                            <textarea #msj cols="50" rows="8" style="width: 100%;" name="msj" formControlName="msj"></textarea>
 
-                        </p>
-                        <button type="submit" class="btn btn-primary" >Enviar</button>
+
+                        <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">Enviar</button>
                         <br>
-                        <p *ngIf="enviadoStatus" style="color:red;">¡Tu correo ha sido enviado!</p>
+                        <p *ngIf="enviadoStatus" style="color:seagreen;" >¡Tu correo ha sido enviado!</p>
                     </form>
                 </mat-card-content>
             </mat-card>

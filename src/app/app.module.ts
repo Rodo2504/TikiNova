@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+import{ QRComponent } from './components/qr/qr.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
@@ -35,6 +35,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/auth/register/register.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { QRCodeModule } from "angularx-qrcode";
+
 
 
 @NgModule({
@@ -48,7 +50,8 @@ import { HttpClientModule } from '@angular/common/http';
     PreguntasComponent,
     TablaComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    QRComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatCheckboxModule,
     MatInputModule,
     MatTabsModule,
-    HttpClientModule
+    HttpClientModule,
+    QRCodeModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

@@ -25,7 +25,21 @@
             </div>
         </div>
         <div class="col-lg item1-2">
-            <img src="../../../assets/tiki.jpg" width="50%" alt="">
+            <!--<img src="../../../assets/tiki.jpg" width="50%" alt="">-->
+            <mat-card class="cupones">
+              <mat-card-header class="miniLogo">
+                <div mat-card-avatar><img src="../../../assets/logo.png"  width="80px;" alt=""></div>
+                <mat-card-title>DESCUENTOS TIKINOVA</mat-card-title>
+                <mat-card-subtitle>Inicia sesión para ver codigo QR</mat-card-subtitle>
+              </mat-card-header>
+              <app-qr></app-qr>
+              <mat-card-content>
+                <p>
+                  Estos codigos de descuento son de un solo uso. sin tiempo limitado en el uso.
+                </p>
+              </mat-card-content>
+            </mat-card>
+
         </div>
     </div>
 
@@ -61,4 +75,5 @@
         <app-tabla></app-tabla>
     </div>
 </div>
+
 
