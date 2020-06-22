@@ -8,14 +8,13 @@ import Speech from 'speak-tts';
 export class AboutComponent {
 
   html = '';
-  speech: any;
+  speechAbout: any;
   speechData: any;
   constructor(){
-
-    this.speech = new Speech() // will throw an exception if not browser supported
-    if(this.speech .hasBrowserSupport()) { // returns a boolean
+    this.speechAbout = new Speech() // will throw an exception if not browser supported
+    if(this.speechAbout .hasBrowserSupport()) { // returns a boolean
         console.log("speech synthesis supported")
-        this.speech.init({
+        this.speechAbout.init({
                 'volume': 1,
                 'lang': 'es-MX',
                 'rate': 1,
@@ -38,7 +37,9 @@ export class AboutComponent {
             console.error("An error occured while initializing : ", e)
         })
     }
+
   }
+
 
   start(texto1:string,texto2:string,texto3:string,texto4:string){
 
@@ -46,7 +47,7 @@ export class AboutComponent {
     //console.log(texto);
 
 
-      this.speech.speak({
+      this.speechAbout.speak({
           text: this.html,
       }).then(() => {
           console.log("Success !")
@@ -55,10 +56,10 @@ export class AboutComponent {
       })
   }
   pause(){
-    this.speech.pause();
+    this.speechAbout.pause();
   }
   resume(){
-    this.speech.resume();
+    this.speechAbout.resume();
   }
 
 

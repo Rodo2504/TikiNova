@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import Speech from 'speak-tts';
 
 
@@ -7,13 +7,13 @@ import Speech from 'speak-tts';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
   html = '';
   speech: any;
   speechData: any;
-  constructor(){
-
+  constructor(){ }
+  ngOnInit(): void {
     this.speech = new Speech() // will throw an exception if not browser supported
     if(this.speech .hasBrowserSupport()) { // returns a boolean
         console.log("speech synthesis supported")
