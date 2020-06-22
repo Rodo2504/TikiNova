@@ -11,6 +11,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 export class RegisterComponent implements OnInit {
   registerform;
   igual = true;
+  existe = false;
   constructor(private authService: AuthService, private router: Router, private formBuilder: FormBuilder) {
     this.registerform = this.formBuilder.group({
       email: ['', [
@@ -37,9 +38,11 @@ export class RegisterComponent implements OnInit {
       const user = await this.authService.register(email, password);
       if (user) {
         this.router.navigate(['/home']);
+      } else {
+        this.existe = true;
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 

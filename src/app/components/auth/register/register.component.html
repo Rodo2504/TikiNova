@@ -42,6 +42,10 @@
                       <div class="badge badge-danger">La contraseña no es la misma</div>
                    </ng-container>
                 </div>
+                  <ng-container *ngIf="existe">
+                    <div class="badge badge-danger">Este email ya esta registrado.</div>
+                  </ng-container>
+                  
                   <div *ngIf="!igual else habilitar">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="true">Crear Cuenta</button> 
                   </div>

@@ -5,7 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
   providedIn: 'root'
 })
 export class AuthService {
-
+  noexiste = true;
   constructor(public afAuth: AngularFireAuth) { }
   async login(email: string, password: string) {
     try {
@@ -20,7 +20,8 @@ export class AuthService {
       const resultado = await this.afAuth.createUserWithEmailAndPassword(email, password);
       return resultado;
     } catch (error) {
-      console.log(error);
+      this.noexiste = false;
+      return this.noexiste;
     }
   }
   async logout() {
