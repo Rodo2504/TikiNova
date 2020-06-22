@@ -12,13 +12,5 @@
         "destination": "/index.html"
       }
     ]
-<<<<<<< HEAD
-=======
-  },
-  "functions": {
-    "predeploy": [
-      "npm --prefix \"$RESOURCE_DIR\" run lint"
-    ]
->>>>>>> a263d5429350ef5cd9cd12b9b8b18dfd8c1713aa
   }
 }
