@@ -18,6 +18,7 @@ import { PreguntasComponent } from './components/preguntas/preguntas.component';
 import { TablaComponent } from './components/tabla/tabla.component';
 import { LoginComponent } from './components/auth/login/login.component';
 
+
 /* Componentes Angular Material */
 import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -36,7 +37,8 @@ import { RegisterComponent } from './components/auth/register/register.component
 
 import { HttpClientModule } from '@angular/common/http';
 import { QRCodeModule } from "angularx-qrcode";
-
+import { GraficaComponent } from './components/grafica/grafica.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -51,7 +53,8 @@ import { QRCodeModule } from "angularx-qrcode";
     TablaComponent,
     LoginComponent,
     RegisterComponent,
-    QRComponent
+    QRComponent,
+    GraficaComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,8 @@ import { QRCodeModule } from "angularx-qrcode";
     MatInputModule,
     MatTabsModule,
     HttpClientModule,
-    QRCodeModule
+    QRCodeModule,
+    ChartsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
