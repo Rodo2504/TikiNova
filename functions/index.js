@@ -1,6 +1,5 @@
 const functions = require('firebase-functions');
 const nodemailer =  require('nodemailer');
-const xoauth2 = require('xoauth2')
 const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
