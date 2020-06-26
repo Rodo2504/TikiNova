@@ -1,8 +1,11 @@
+import { NavloggedComponent } from './logged/navlogged/navlogged.component';
+import { BdService } from './../../services/bd/bd.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from './../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-navbar',
@@ -11,8 +14,9 @@ import { Observable } from 'rxjs';
 })
 export class NavbarComponent implements OnInit {
   public $user: Observable<any> = this.authService.afAuth.user;
-  constructor(private router: Router, private authService: AuthService, private auth: AngularFireAuth) { }
-
+  datos: any;
+  useruid: any;
+  constructor(private router: Router, private authService: AuthService, private auth: AngularFireAuth, private bdService: BdService) {  }
   ngOnInit(): void {
   }
   login() {

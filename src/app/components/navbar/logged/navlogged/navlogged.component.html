@@ -1,0 +1,23 @@
+<ul class="navbar-nav mr-auto" >
+<ng-container *ngIf="!isadmin else admin">
+    <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['pedido']">Hacer pedido</a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['mispedidos']">Ver mis pedidos</a>
+    </li>
+</ng-container>
+<ng-template #admin>
+    <li class="nav-item active mr-auto">
+        <a class="nav-link" [routerLink]="['pedidos']">Ver pedidos</a>
+    </li>
+    <li class="nav-item active mr-auto">
+        <a class="nav-link" [routerLink]="['menu']">Menu</a>
+    </li>
+</ng-template>
+</ul>
+
+
+
+
+

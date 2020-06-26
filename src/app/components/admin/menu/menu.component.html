@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="container">
+                <h3>Platillos</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    <a href="javascript:void(0)" (click)="limpiar()"><i class="fas fa-plus-circle" style="color: cornflowerblue;"></i></a>
+                                </th>
+                                <th scope="col">Nombre:</th>
+                                <th scope="col">Descripcion:</th>
+                                <th scope="col">Precio:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let dato of todosdatos">
+                                <!--es una subscripcion a un observable via async -->
+                                <td>
+                                  <a href="javascript:void(0)" (click)="edit(dato.id)"><i class="far fa-edit"></i></a>
+                                  <a href="javascript:void(0)" (click)="borrar(dato.id)"><i class="fas fa-trash-alt"></i></a>
+                                </td>
+                                <td>{{ dato.info.Nombre}}</td>
+                                <td>{{ dato.info.Descripcion}}</td>
+                                <td>$ {{ dato.info.Precio}}</td>
+                              </tr>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="container">
+                <h3>Formulario</h3>
+                <form [formGroup]="menuForm">
+                    <div class="form-group">
+                        <label for="">Nombre:</label>
+                        <input type="text" class="form-control" [(ngModel)]="nomi" formControlName="nomi" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="descripi">Descripcion:</label>
+                        <textarea name="descripi" id="descripi" cols="30" rows="4" [(ngModel)]="descripi" formControlName="descripi" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Precio:</label>
+                        <div class="input-group">
+                        <input type="button" value="$" disabled="true" style="color: black;">
+                        <input type="number" [(ngModel)]="preci" class="form-control"  formControlName="preci" min="0" value="0.00" required></div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-block btn-primary" type="button" [disabled]="menuForm.invalid" (click)="agregar()">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

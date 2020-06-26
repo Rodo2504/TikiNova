@@ -1,0 +1,42 @@
+
+<div class="container">
+  <h3>Nuestro Menu</h3>
+    <div class="row mt-2">
+        <div class="col-md-8">
+            <div class="container">
+                
+                <mat-accordion class="acordion" *ngFor="let dato of todosdatos">
+                    <mat-expansion-panel class="panel">
+                        <mat-expansion-panel-header class="h">
+                          {{dato.info.Nombre}}
+                        </mat-expansion-panel-header>
+                        <mat-divider></mat-divider>
+                          <p class="paccord">{{dato.info.Descripcion}}</p>
+                          <button class="btn btn-danger" (click)="agregar(dato.id)">Agregar</button>
+                        </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </div>
+        <div class="col-md-4 mt-8 mb-5">
+          <div class="card">
+            <h2 class="card-header">Mi Orden</h2>
+            <div class="card-body">
+              <ng-container *ngIf="ordeno">
+
+              <p class="card-title" *ngFor="let platillo of carrito">
+                <a href="javascript:void(0)" (click)="quitar(platillo.row)"><i class="fas fa-times" style="color: red;"></i></a>
+                {{platillo.Nombre}} ---------------------------- ${{platillo.Precio}}
+              </p>
+            </ng-container>
+            <p class="card-title">Total $ {{total}}</p>
+              <button class="btn btn-success btn-block" [disabled]="carrito.length==0">Crear Orden</button>
+            </div>
+          </div>
+          <div class="container mt-5">
+           <button class="btn btn-block btn-info mt-5" [disabled]="carrito.length==0" (click)="ruleta()">Ruleta de Descuento</button>
+           <p class="mt-3">Ingresa el Codigo del QR:</p>
+           <input type="text" class="form-control" [disabled]="carrito.length==0">
+          </div>
+        </div>
+    </div>
+</div>
