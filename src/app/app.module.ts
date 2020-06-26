@@ -43,18 +43,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { HttpClientModule } from '@angular/common/http';
-<<<<<<< HEAD
 import { QRCodeModule } from 'angularx-qrcode';
 import { MenuComponent } from './components/admin/menu/menu.component';
 import { PedidoComponent } from './components/cliente/pedido/pedido.component';
-
-
-
-=======
-import { QRCodeModule } from "angularx-qrcode";
 import { GraficaComponent } from './components/grafica/grafica.component';
 import { ChartsModule } from 'ng2-charts';
->>>>>>> 8548824cfb807ea862b69796cbc05ee8f7fc4091
 
 
 @NgModule({
@@ -70,15 +63,12 @@ import { ChartsModule } from 'ng2-charts';
     LoginComponent,
     RegisterComponent,
     QRComponent,
-<<<<<<< HEAD
     NavloggedComponent,
     AdminComponent,
     ClienteComponent,
     MenuComponent,
-    PedidoComponent
-=======
+    PedidoComponent,
     GraficaComponent
->>>>>>> 8548824cfb807ea862b69796cbc05ee8f7fc4091
   ],
   imports: [
     BrowserModule,
