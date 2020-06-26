@@ -25,6 +25,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
 
 
+
 /* Componentes Angular Material */
 import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -42,12 +43,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { HttpClientModule } from '@angular/common/http';
+<<<<<<< HEAD
 import { QRCodeModule } from 'angularx-qrcode';
 import { MenuComponent } from './components/admin/menu/menu.component';
 import { PedidoComponent } from './components/cliente/pedido/pedido.component';
 
 
 
+=======
+import { QRCodeModule } from "angularx-qrcode";
+import { GraficaComponent } from './components/grafica/grafica.component';
+import { ChartsModule } from 'ng2-charts';
+>>>>>>> 8548824cfb807ea862b69796cbc05ee8f7fc4091
 
 
 @NgModule({
@@ -63,11 +70,15 @@ import { PedidoComponent } from './components/cliente/pedido/pedido.component';
     LoginComponent,
     RegisterComponent,
     QRComponent,
+<<<<<<< HEAD
     NavloggedComponent,
     AdminComponent,
     ClienteComponent,
     MenuComponent,
     PedidoComponent
+=======
+    GraficaComponent
+>>>>>>> 8548824cfb807ea862b69796cbc05ee8f7fc4091
   ],
   imports: [
     BrowserModule,
@@ -88,7 +99,8 @@ import { PedidoComponent } from './components/cliente/pedido/pedido.component';
     MatInputModule,
     MatTabsModule,
     HttpClientModule,
-    QRCodeModule
+    QRCodeModule,
+    ChartsModule
   ],
   providers: [AuthService, BdService],
   bootstrap: [AppComponent]

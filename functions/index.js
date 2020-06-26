@@ -1,8 +1,7 @@
 const functions = require('firebase-functions');
 const nodemailer =  require('nodemailer');
-require('dotenv').config();
-
 const express = require('express');
+require('dotenv').config();
 const cors = require('cors');
 const app= express();
 app.use(cors({origin:true}));
@@ -17,14 +16,29 @@ app.post('/',(req,res)=>{
   const { email,subject,message } = req.body;
 
 
-    const transporter = nodemailer.createTransport({
+   /* const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth:{
-                user: process.env.EMAIL,
-                pass: process.env.PASSWORD
-            }
-    });
+              xoauth2: xoauth2.createXOAuth2Generator({
+                user: 'tikinova123@gmail.com',
+                clientId: '980610006248-f03bs56pvdnsnht5btmsicespil7m1oj.apps.googleusercontent.com',
+                clientSecret: 'ARBOe8JEaf3qDHrnphQODSUl',
+                refreshToken:'1//04P_zDzv2lSINCgYIARAAGAQSNwF-L9IrD7BMzlancam-p3H8sf0XuOXpj7_xIslTX8ulCJu2WW1xdmP7Krmhg9SnM_Y1QRsg6GQ'
+              })
 
+            }
+    });*/
+
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth:{
+
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD
+
+
+      }
+});
     const mailOptions = {
       from: email,
       to: 'tikinova123@gmail.com',
