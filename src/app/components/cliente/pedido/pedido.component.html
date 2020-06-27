@@ -29,7 +29,7 @@
               </p>
             </ng-container>
             <p class="card-title">Total $ {{total}}</p>
-              <button class="btn btn-success btn-block" [disabled]="carrito.length==0">Crear Orden</button>
+              <button class="btn btn-success btn-block" [disabled]="carrito.length==0" (click)="crearO()">Crear Orden</button>
             </div>
           </div>
           <div class="container mt-5">

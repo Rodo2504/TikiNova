@@ -1,5 +1,6 @@
 import { BdService } from './../../../services/bd/bd.service';
 import { Component, OnInit, Output } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-pedido',
@@ -13,11 +14,11 @@ export class PedidoComponent implements OnInit {
   pedidos = new Array()
   miorden: any;
   carrito = new Array();
-  platillo: {row: number, id: '', Nombre: '', Precio: 0};
+  platillo: {row: number, id: '', Nombre: '', Precio: 0, Vendido: number};
   cont = 0;
   total = 0.00;
   ordeno = false;
-  constructor(private bdService: BdService) { }
+  constructor(private bdService: BdService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.bdService.getMenu().subscribe(data => {
@@ -29,14 +30,6 @@ export class PedidoComponent implements OnInit {
       });
     });
 
-
-
-   this.bdService.getPedidos().subscribe(pedido => {
-     const pedido0 = {Alitas: pedido[0]._fieldsProto.Alitas.integerValue, Fecha: pedido[0]._fieldsProto.Fecha.timestampValue,
-       Papas: pedido[0]._fieldsProto.Papas.integerValue,Total: pedido[0]._fieldsProto.Total.integerValue,Usuario: pedido[0]._fieldsProto.Usuario.stringValue};
-     this.pedidos.push(pedido0);
-    // console.log(pedido0);
-   });
  }
   agregar(uid: string) {
     for (const dato of this.todosdatos) {
@@ -45,7 +38,8 @@ export class PedidoComponent implements OnInit {
           row: this.cont,
           id: dato.id,
           Nombre: dato.info.Nombre,
-          Precio: dato.info.Precio
+          Precio: dato.info.Precio,
+          Vendido: dato.info.Vendidos
         };
         this.ordeno = true;
         this.total += this.platillo.Precio;
@@ -67,6 +61,45 @@ export class PedidoComponent implements OnInit {
     }
     this.carrito = carritotemp;
     // this.carrito.splice(index, 1);
+  }
+  crearO(){
+
+    var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+    var f=new Date();
+
+    var orden = new Object();
+    orden[this.carrito[0].Nombre]=1;
+    console.log(this.carrito);
+
+    for(let vendido of this.carrito){
+      this.bdService.aumentarVenta(vendido.id,vendido.Vendido+1);
+    }
+    for(let vendido of this.carrito){
+      for(var temp in orden){
+        if(vendido.Nombre==temp){
+          orden[temp]++;
+        }else{
+          orden[vendido.Nombre]=1;
+        }
+      }
+
+    }
+    orden[this.carrito[0].Nombre]--;
+    orden["Fecha"]= f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear()+", "+f.getHours()+':'+f.getMinutes()+':'+f.getSeconds()+" UTC-5";
+    orden["Total"]=this.total;
+    //orden["Usuario"]=this.
+
+    this.authService.getUser().subscribe(usuario => {
+      if(usuario.email==null){
+        orden["Usuario"] = usuario.phoneNumber;
+      }else{
+        orden["Usuario"]=usuario.email;
+      }
+
+
+
+  });
+    this.bdService.agregarOrden(orden);
   }
 
 

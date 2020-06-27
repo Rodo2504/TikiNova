@@ -14,12 +14,15 @@ export class MenuComponent implements OnInit {
   nomi: string;
   descripi: string;
   preci: number;
+  vendi:number =0;
   idu: string; // es para agrrar el uid del producto a update
   constructor(private bdService: BdService, private formBuilder: FormBuilder) {
     this.menuForm = this.formBuilder.group({
       nomi: ['', Validators.required],
       descripi: ['', Validators.required],
       preci: ['', Validators.required],
+      vendi:['']
+
     });
    }
 
@@ -39,13 +42,14 @@ export class MenuComponent implements OnInit {
         this.nomi = dato.info.Nombre;
         this.descripi = dato.info.Descripcion;
         this.preci = dato.info.Precio;
+        this.vendi = dato.info.Vendidos;
         this.editando = true;
         this.idu = id;
       }
     }
   }
   agregar() {
-    const datoc = { Nombre: this.nomi, Descripcion: this.descripi, Precio: this.preci  };
+    const datoc = { Nombre: this.nomi, Descripcion: this.descripi, Precio: this.preci, Vendidos: this.vendi };
     if (!this.editando) {
       this.bdService.createMenu(datoc);
       this.limpiar();
@@ -61,6 +65,7 @@ export class MenuComponent implements OnInit {
     this.nomi = '';
     this.descripi = '';
     this.preci = 0.00;
+    this.vendi= 0;
     this.editando = false;
   }
 

@@ -1,13 +1,18 @@
 
   <div>
-    <div style="display: block">
-      <canvas baseChart
-        [datasets]="barChartData"
-        [labels]="barChartLabels"
-        [options]="barChartOptions"
-        [legend]="barChartLegend"
-        [chartType]="barChartType">
-      </canvas>
-    </div>
+    <button (click)="crearGraf()">Generar Grafica</button>
+    <ng-container *ngIf='mostrar'>
+    <div style="display: block; width: 50%;">
+        <canvas baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [chartType]="barChartType">
+        </canvas>
+      </div>
+    </ng-container>
+
+
   </div>
 

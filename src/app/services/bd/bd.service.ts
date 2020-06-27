@@ -23,7 +23,8 @@ export class BdService {
     this.firestore.collection('Platillos').doc(id).update({
       Nombre: datou.Nombre,
       Descripcion: datou.Descripcion,
-      Precio: datou.Precio
+      Precio: datou.Precio,
+      Vendidos: datou.Vendidos
     });
   }
   borrarMenu(datosid: string) {
@@ -35,5 +36,14 @@ export class BdService {
 
   getPedidos() {
     return this.httpClient.get('https://us-central1-tikinova-a9918.cloudfunctions.net/grafica');
+  }
+  aumentarVenta(id:string,cant:number){
+    this.firestore.collection('Platillos').doc(id).update({
+      Vendidos: cant
+    });
+  }
+  agregarOrden(datoc:any){
+
+    return this.firestore.collection('Pedidos').add(datoc);
   }
 }
