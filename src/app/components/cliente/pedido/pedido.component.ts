@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PedidoComponent implements OnInit {
   todosdatos: any;
-  todoscodigos: any;
+  todoscodigos = new Array();
   miorden: any;
   carrito = new Array();
   platillo: {row: number, id: '', Nombre: '', Precio: 0};
@@ -26,13 +26,13 @@ export class PedidoComponent implements OnInit {
         };
       });
     });
-    this.bdService.getCodigos().subscribe(cod => {
-      this.todoscodigos = cod.map(e => {
-        return {
-          id: e.payload.doc.id,
-          info: e.payload.doc.data()
-        };
-      });
+    this.bdService.getCodigos().subscribe(codigo => {
+      console.log(codigo);
+       // tslint:disable-next-line: align
+      const code0 = {Codigo: codigo[0]._fieldsProto.Codigo.stringValue, Estado: codigo[0]._fieldsProto.Estado.booleanValue, 
+        Valor: codigo[0]._fieldsProto.Valor.integerValue};
+      this.todoscodigos.push(code0);
+      console.log(code0);
     });
   }
   agregar(uid: string) {
@@ -66,12 +66,10 @@ export class PedidoComponent implements OnInit {
     // this.carrito.splice(index, 1);
   }
   ruleta() {
-    let cont = 1;
-    var codstr:string;
-    var codval:number;
     const num = Math.floor(Math.random() * ((5 + 1) - 1 ) + 1);
     console.log(num);
-    for(let codigo of this.todoscodigos){
+    console.log(this.todoscodigos);
+    /*for(let codigo of this.todoscodigos){
       if(cont == num && codigo.info.Estado){
         codstr = codigo.info.Codigo;
         codval = codigo.info.Valor;
@@ -79,7 +77,7 @@ export class PedidoComponent implements OnInit {
         break;
       }
       cont++;
-    }
+    }*/
   }
 
 }

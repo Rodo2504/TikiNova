@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
@@ -6,7 +7,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class BdService {
 
-  constructor(private firestore: AngularFirestore) {
+  constructor(private firestore: AngularFirestore, private httpClient: HttpClient) {
    }
   isAdmin() {
     return this.firestore.collection('Admins').snapshotChanges();
@@ -28,6 +29,6 @@ export class BdService {
     this.firestore.doc('Platillos/' + datosid).delete();
   }
   getCodigos() {
-    return this.firestore.collection('Descuentos').snapshotChanges();
+    return this.httpClient.get('https://us-central1-tikinova-a9918.cloudfunctions.net/qrapi');
   }
 }
