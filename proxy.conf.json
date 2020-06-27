@@ -1,5 +1,5 @@
 {
-  "/mail":{
+  "/mailer":{
     "target": "https://us-central1-tikinova-a9918.cloudfunctions.net",
     "secure": false,
     "changeOrigin": true
