@@ -66,8 +66,20 @@ export class PedidoComponent implements OnInit {
     // this.carrito.splice(index, 1);
   }
   ruleta() {
+    let cont = 1;
+    var codstr:string;
+    var codval:number;
     const num = Math.floor(Math.random() * ((5 + 1) - 1 ) + 1);
-    alert(num);
+    console.log(num);
+    for(let codigo of this.todoscodigos){
+      if(cont == num && codigo.info.Estado){
+        codstr = codigo.info.Codigo;
+        codval = codigo.info.Valor;
+
+        break;
+      }
+      cont++;
+    }
   }
 
 }
