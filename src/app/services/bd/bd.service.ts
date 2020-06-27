@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,5 +31,9 @@ export class BdService {
   }
   getCodigos() {
     return this.httpClient.get('https://us-central1-tikinova-a9918.cloudfunctions.net/qrapi');
+  }
+
+  getPedidos() {
+    return this.httpClient.get('https://us-central1-tikinova-a9918.cloudfunctions.net/grafica');
   }
 }

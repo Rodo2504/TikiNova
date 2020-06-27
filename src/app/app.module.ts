@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { QRComponent } from './components/cliente/pedido/qr/qr.component';
+import { QRComponent } from './components/cliente/qr/qr.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NavloggedComponent } from './components/navbar/logged/navlogged/navlogged.component';
 import { FooterComponent } from './components/footer/footer.component';

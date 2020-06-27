@@ -1,5 +1,5 @@
 import { BdService } from './../../../services/bd/bd.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-pedido',
@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pedido.component.css']
 })
 export class PedidoComponent implements OnInit {
+  codstr:string;
+  codval:number;
   todosdatos: any;
-  todoscodigos = new Array();
+  pedidos = new Array()
   miorden: any;
   carrito = new Array();
   platillo: {row: number, id: '', Nombre: '', Precio: 0};
@@ -26,15 +28,16 @@ export class PedidoComponent implements OnInit {
         };
       });
     });
-    this.bdService.getCodigos().subscribe(codigo => {
-      console.log(codigo);
-       // tslint:disable-next-line: align
-      const code0 = {Codigo: codigo[0]._fieldsProto.Codigo.stringValue, Estado: codigo[0]._fieldsProto.Estado.booleanValue, 
-        Valor: codigo[0]._fieldsProto.Valor.integerValue};
-      this.todoscodigos.push(code0);
-      console.log(code0);
-    });
-  }
+
+
+
+   this.bdService.getPedidos().subscribe(pedido => {
+     const pedido0 = {Alitas: pedido[0]._fieldsProto.Alitas.integerValue, Fecha: pedido[0]._fieldsProto.Fecha.timestampValue,
+       Papas: pedido[0]._fieldsProto.Papas.integerValue,Total: pedido[0]._fieldsProto.Total.integerValue,Usuario: pedido[0]._fieldsProto.Usuario.stringValue};
+     this.pedidos.push(pedido0);
+    // console.log(pedido0);
+   });
+ }
   agregar(uid: string) {
     for (const dato of this.todosdatos) {
       if (uid === dato.id) {
@@ -65,19 +68,6 @@ export class PedidoComponent implements OnInit {
     this.carrito = carritotemp;
     // this.carrito.splice(index, 1);
   }
-  ruleta() {
-    const num = Math.floor(Math.random() * ((5 + 1) - 1 ) + 1);
-    console.log(num);
-    console.log(this.todoscodigos);
-    /*for(let codigo of this.todoscodigos){
-      if(cont == num && codigo.info.Estado){
-        codstr = codigo.info.Codigo;
-        codval = codigo.info.Valor;
 
-        break;
-      }
-      cont++;
-    }*/
-  }
 
 }
