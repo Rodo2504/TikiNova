@@ -56,4 +56,24 @@ app.post('/',(req,res)=>{
     })
 });
 
+
 module.exports.mailer = functions.https.onRequest(app);
+////qrapi
+const admin = require('firebase-admin');
+admin.initializeApp();
+
+const db = admin.firestore();
+
+db.settings({timestampsInSnapshots:true});
+
+
+  exports.qrapi = functions.https.onRequest( (req, res) => {
+   db.collection('Descuentos').get().then((snapshot) =>{
+  snapshot.docs.forEach(doc =>{
+
+
+  })
+  res.send(snapshot.docs);
+})
+
+    });
