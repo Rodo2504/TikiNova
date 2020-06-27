@@ -5,29 +5,9 @@ require('dotenv').config();
 const cors = require('cors');
 const app= express();
 app.use(cors({origin:true}));
-//app.use(function(req,res, next){
-    //res.header('Access-Control-Allow-Origin',"*");
-//    res.header('Access-Control-Allow-Headers',"Origin, X-Requested-With, Content-Type, Accept");
-  //  res.header('Access-Control-Allow-Origin:', 'http://localhost:4200/');
-    //res.header('Access-Control-Allow-Origin:', 'http://localhost:5001/tikinova-a9918/us-central1/mailer');
-    //next();
-//});
+
 app.post('/',(req,res)=>{
   const { email,subject,message } = req.body;
-
-
-   /* const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth:{
-              xoauth2: xoauth2.createXOAuth2Generator({
-                user: 'tikinova123@gmail.com',
-                clientId: '980610006248-f03bs56pvdnsnht5btmsicespil7m1oj.apps.googleusercontent.com',
-                clientSecret: 'ARBOe8JEaf3qDHrnphQODSUl',
-                refreshToken:'1//04P_zDzv2lSINCgYIARAAGAQSNwF-L9IrD7BMzlancam-p3H8sf0XuOXpj7_xIslTX8ulCJu2WW1xdmP7Krmhg9SnM_Y1QRsg6GQ'
-              })
-
-            }
-    });*/
 
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -58,7 +38,7 @@ app.post('/',(req,res)=>{
 
 
 module.exports.mailer = functions.https.onRequest(app);
-////qrapi
+///////////// QR API
 const admin = require('firebase-admin');
 admin.initializeApp();
 
@@ -67,13 +47,51 @@ const db = admin.firestore();
 db.settings({timestampsInSnapshots:true});
 
 
-  exports.qrapi = functions.https.onRequest( (req, res) => {
+
+
+exports.qrapi = (req, res) => {
+
+
+  res.set('Access-Control-Allow-Origin', '*');
+
+  if (req.method === 'OPTIONS') {
+    // Send response to OPTIONS requests
+    res.set('Access-Control-Allow-Methods', 'GET');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
+    res.set('Access-Control-Max-Age', '3600');
+    res.status(204).send('');
+  } else {
+
    db.collection('Descuentos').get().then((snapshot) =>{
-  snapshot.docs.forEach(doc =>{
-
-
-  })
+  snapshot.docs.forEach(doc =>{})
   res.send(snapshot.docs);
-})
+});
 
-    });
+  }
+};
+/// GRAFICA API
+
+
+const datab = admin.firestore();
+
+
+exports.grafica = (req, res) => {
+
+
+  res.set('Access-Control-Allow-Origin', '*');
+
+  if (req.method === 'OPTIONS') {
+    // Send response to OPTIONS requests
+    res.set('Access-Control-Allow-Methods', 'GET');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
+    res.set('Access-Control-Max-Age', '3600');
+    res.status(204).send('');
+  } else {
+
+   db.collection('Pedidos').get().then((snapshot) =>{
+  snapshot.docs.forEach(doc =>{})
+  res.send(snapshot.docs);
+});
+
+  }
+};
