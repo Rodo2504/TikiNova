@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   resultado: any;
   error = '';
   enviado = false;
+  enviando = false;
   enviadoerr: boolean;
   error2 = '';
   constructor(private authService: AuthService, private router: Router, private auth: AngularFireAuth, private formBuilder: FormBuilder) {
@@ -62,10 +63,12 @@ export class LoginComponent implements OnInit {
     .then((resultado) => {
       console.log('Enviado el sms');
       this.enviado = true;
+      this.enviando = false;
       this.resultado = resultado;
     }).catch((error) => {
       console.log(error);
     });
+    this.enviando = true;
   }
   entrar() {
     const {telefono, codigo} = this.smsForm.value;

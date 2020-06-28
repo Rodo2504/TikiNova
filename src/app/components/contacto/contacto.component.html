@@ -39,6 +39,7 @@
 
                         <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">Enviar</button>
                         <br>
+                        <div *ngIf="enviando" class="animated fadeIn" style="color:seagreen;">Enviando... <i class="fas fa-sync fa-spin"></i></div>
                         <p *ngIf="enviadoStatus" style="color:seagreen;" >¡Tu correo ha sido enviado!</p>
                     </form>
                 </mat-card-content>

@@ -8,8 +8,9 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
   styleUrls: ['./contacto.component.css']
 })
 export class ContactoComponent implements OnInit {
-  enviadoStatus:any;
+  enviadoStatus: any;
   contactForm;
+  enviando = false;
   constructor(public emailservice:EmailService,private formB: FormBuilder) {
     this.contactForm = this.formB.group({
       nom: [''],
@@ -24,13 +25,13 @@ export class ContactoComponent implements OnInit {
     this.contactForm.reset()
     this.emailservice.enviarRes(email,subject,text).subscribe((res)=>{
       console.log(res);
-
+      this.enviando = false;
       this.enviadoStatus=true;
       console.log("Enviado:"+this.enviadoStatus);
 
     }
     );
-
+    this.enviando = true;
   }
 
   ngOnInit(): void {
