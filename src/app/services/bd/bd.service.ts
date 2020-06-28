@@ -37,13 +37,15 @@ export class BdService {
   getPedidos() {
     return this.httpClient.get('https://us-central1-tikinova-a9918.cloudfunctions.net/grafica');
   }
-  aumentarVenta(id:string,cant:number){
+  aumentarVenta(id: string, cant: number) {
     this.firestore.collection('Platillos').doc(id).update({
       Vendidos: cant
     });
   }
-  agregarOrden(datoc:any){
-
+  agregarOrden(datoc: any) {
     return this.firestore.collection('Pedidos').add(datoc);
+  }
+  getOrdenes() {
+    return this.firestore.collection('Pedidos').snapshotChanges();
   }
 }

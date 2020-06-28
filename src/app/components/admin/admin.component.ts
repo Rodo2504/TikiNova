@@ -1,3 +1,4 @@
+import { BdService } from 'src/app/services/bd/bd.service';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -9,11 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
   todosdatos: any;
-  constructor() { }
+  todosordenes: any;
+  valores = '';
+  uno = false;
+  constructor(private bdService: BdService) { }
 
   ngOnInit(): void {
-
+    this.bdService.getOrdenes().subscribe(data => {
+      this.todosordenes = data.map(e => {
+        return {
+          id: e.payload.doc.id,
+          info: e.payload.doc.data()
+        };
+      });
+      console.log(this.todosordenes);
+      for (let prueba of this.todosordenes) {
+        const objeto = prueba.info;
+        this.valores += '<div class="card"><div class="card-body">';
+        console.log(objeto);
+        // tslint:disable-next-line: forin
+        for (let prueba2 in objeto) {
+          this.uno = true;
+          this.valores += `<p class="card-text">${prueba2}: ${objeto[prueba2]}</p>`;
+        }
+        this.valores += '</div></div>';
+      }
+    });
   }
-
 
 }

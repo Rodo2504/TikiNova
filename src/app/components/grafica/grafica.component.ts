@@ -33,12 +33,10 @@ export class GraficaComponent implements OnInit{
           info: e.payload.doc.data()
         };
       });
-      console.log(this.todosdatos);
       for(let nom of this.todosdatos){
         this.labels.push(nom.info.Nombre);
         this.chartdata.push(nom.info.Vendidos);
       }
-      console.log(this.labels);
     });
 
 

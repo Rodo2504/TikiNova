@@ -7,11 +7,11 @@ import { BdService } from './../../../services/bd/bd.service';
 })
 export class QRComponent implements OnInit{
   todoscodigos = new Array();
-  codstr:string;
-  codval:number;
-  QRimage=false;
-  public qrdata: any = "hola";
-  public elementType: "img" | "url" | "canvas" | "svg" = null;
+  codstr: string;
+  codval: number;
+  QRimage = false;
+  public qrdata: any = 'hola';
+  public elementType: 'img' | 'url' | 'canvas' | 'svg' = null;
   public scale: number = 1;
 
   constructor(private bdService: BdService) {
@@ -56,27 +56,27 @@ export class QRComponent implements OnInit{
 
         this.todoscodigos.push(code4);
 
-      console.log(this.todoscodigos);
+      // console.log(this.todoscodigos);
    //  console.log(code4);
-   this.ruleta();
+     // this.ruleta();
+     const num = Math.floor(Math.random() * ((4 + 1) - 1 ) + 0);
+     console.log(num);
+     console.log(this.todoscodigos[num].Valor);
+     console.log(this.todoscodigos[num].Codigo);
+     if (this.todoscodigos[num].Estado) {
+      this.codval = this.todoscodigos[num].Valor;
+      this.codstr = this.todoscodigos[num].Codigo;
+      this.QR(this.codstr, this.codval);
+    } else {
+      this.codstr = 'UN NUEVO PEDIDO, NOS VEMOS EN LA PROXIMA. :)';
+      this.codval = 0;
+      this.QR(this.codstr, this.codval);
+    }
    });
 
   }
   ruleta() {
-    const num = Math.floor(Math.random() * ((4 + 1) - 1 ) + 0);
-    console.log(num);
-    console.log(this.todoscodigos[num].Valor);
-    console.log(this.todoscodigos[num].Codigo);
-    if(this.todoscodigos[num].Estado){
-      this.codval = this.todoscodigos[num].Valor;
-      this.codstr = this.todoscodigos[num].Codigo;
-      this.QR(this.codstr,this.codval);
-    }else{
-      this.codstr = "UN NUEVO PEDIDO, NOS VEMOS EN LA PROXIMA. :)";
-      this.codval = 0;
-      this.QR(this.codstr,this.codval);
-    }
-
+    
   }
 
 

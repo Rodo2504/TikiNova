@@ -1,1 +1,13 @@
-<p>cliente works!</p>
+<div class="container mt-5">
+    <h3>Tus Ordenes</h3>
+    <div class="card-columns">
+            
+                <div class="container" *ngIf="!contiene">
+                    <p class="badge-info">No tienes ordenes por el momento.</p>
+                </div>
+                
+                <div [innerHtml]="valores">
+
+            </div>
+    </div>
+</div>
