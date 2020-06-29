@@ -15,3 +15,8 @@ p{
     background-color: gainsboro;
     padding: 10px;
 }
+.abs-center{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}

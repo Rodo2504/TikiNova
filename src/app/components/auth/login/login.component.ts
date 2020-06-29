@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
         // tslint:disable-next-line: no-shadowed-variable
       } else {
         this.invalido = true;
-        this.error = 'No coinice la contraseña con el usuario';
+        this.error = 'No coincide la contraseña con el usuario';
       }
     } catch (error) {
       console.log(error);
