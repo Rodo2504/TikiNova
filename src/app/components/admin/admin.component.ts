@@ -23,11 +23,9 @@ export class AdminComponent implements OnInit {
           info: e.payload.doc.data()
         };
       });
-      console.log(this.todosordenes);
       for (let prueba of this.todosordenes) {
         const objeto = prueba.info;
         this.valores += '<div class="card"><div class="card-body">';
-        console.log(objeto);
         // tslint:disable-next-line: forin
         for (let prueba2 in objeto) {
           this.uno = true;

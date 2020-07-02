@@ -38,7 +38,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import {MatSelectModule} from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -90,7 +90,8 @@ import { ChartsModule } from 'ng2-charts';
     MatTabsModule,
     HttpClientModule,
     QRCodeModule,
-    ChartsModule
+    ChartsModule,
+    MatSelectModule
   ],
   providers: [AuthService, BdService],
   bootstrap: [AppComponent]

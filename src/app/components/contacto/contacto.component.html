@@ -21,6 +21,12 @@
                             <input type="text" #nom style="width: 100%;" formControlName="nom" required>
 
                             <br>
+                            <br>
+                            <select formControlName="select" [(ngModel)]="seleccionado">
+                              <option [value]="item" *ngFor="let item of asuntos">{{item}}</option>
+                              </select>
+
+                            <br>
                             <label for="correo">Correo:</label>
                             <input type="text" #correo style="width: 100%;" name="correo" formControlName="correo"
                              [class.is-invalid] = "contactForm.get('correo').invalid && contactForm.get('correo').touched" class="form-control">

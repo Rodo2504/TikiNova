@@ -1,18 +1,36 @@
+<div>
+  <button (click)="crearGraf()">Generar Grafica</button>
+  <div class="row">
 
-  <div>
-    <button (click)="crearGraf()">Generar Grafica</button>
-    <ng-container *ngIf='mostrar'>
-    <div style="display: block; width: 50%;">
-        <canvas baseChart
+    <ng-container *ngIf="mostrar">
+      <div style="display: block; width: 50%;" class="col">
+        <canvas
+          baseChart
           [datasets]="barChartData"
           [labels]="barChartLabels"
           [options]="barChartOptions"
           [legend]="barChartLegend"
-          [chartType]="barChartType">
+          [chartType]="barChartType"
+          [colors]="chartColors"
+        >
         </canvas>
       </div>
+      <div class="col">
+
+          <form [formGroup]="checkForm" (ngSubmit)="filtro()" novalidate>
+
+            <div *ngFor="let platillo of todosLabels; let i=index">
+              <label>
+                <input type="checkbox" [value]="platillo"  (change)="onCheckboxChange($event)" />
+                {{platillo}}
+              </label>
+            </div>
+            <p class="error" *ngIf="this.checkForm.controls['checkArray'].errors?.required">
+              Selecciona los platillos a filtrar.
+            </p>
+          </form>
+
+      </div>
     </ng-container>
-
-
   </div>
-
+</div>
