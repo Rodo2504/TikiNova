@@ -18,11 +18,14 @@
         <li class="nav-item active">
           <a class="nav-link" [routerLink]="['preguntas']">Preguntas Frecuentes</a>
         </li>
-        <ng-container *ngIf="$user | async as user">
+        <ng-container *ngIf="$user | async as user">  
           <app-navlogged></app-navlogged>
         </ng-container>
       </ul>
       <a [routerLink]="['preguntas']" mat-button><i class="fas fa-question-circle" style="font-size: 20px;"></i></a>
+      <ng-container *ngIf="$user | async as user">  
+        <div class="nav-item active">{{user.email}}{{user.phoneNumber}}</div>
+      </ng-container>
       <button mat-icon-button [matMenuTriggerFor]="appMenu" color= "acento"  >
         <mat-icon>account_circle</mat-icon>
       </button>
