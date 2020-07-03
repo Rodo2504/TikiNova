@@ -1,0 +1,11 @@
+h1,
+h2,
+h3 {
+    color: white;
+    text-shadow: 4px 4px 2px #170C6A;
+}
+
+.cards {
+    border-radius: 20px;
+    box-shadow: 15px 15px 30px grey;
+}

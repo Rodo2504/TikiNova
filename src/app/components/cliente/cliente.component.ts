@@ -35,7 +35,7 @@ export class ClienteComponent implements OnInit {
           const objeto = prueba.info;
           if (this.usuarioactual === prueba.info.Usuario) {
             this.contiene = true;
-            this.valores += '<div class="card"><div class="card-body">';
+            this.valores += '<div class="card cards"><div class="card-body">';
           // tslint:disable-next-line: forin
             for (const prueba2 in objeto) {
               this.valores += `<p class="card-text">${prueba2}: ${objeto[prueba2]}</p>`;

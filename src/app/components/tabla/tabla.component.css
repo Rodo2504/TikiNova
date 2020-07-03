@@ -1,8 +1,14 @@
 table {
     width: 100%;
-  }
-  th{
-    background-color: gainsboro;
+}
+
+th {
+    background-color: rgb(246, 165, 73);
     font-size: 20px;
     font-family: cursive;
-  }
+}
+
+td {
+    font-family: cursive;
+    font-size: 15px;
+}

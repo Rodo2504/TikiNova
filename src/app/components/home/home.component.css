@@ -1,22 +1,48 @@
-.item1-2{
+.item1-2 {
     display: flex;
     justify-content: center;
 }
-.item2{
+
+.item2 {
     background-color: cadetblue;
 }
-.item3{
+
+.item3 {
     width: 100%;
     padding: 25px;
 }
-p{
+
+p {
     text-align: justify;
     font-size: 22px;
     font-family: cursive;
 }
-.cupones {
-  max-width: 400px;
+
+.pCarusel {
+    color: white;
+    text-shadow: 2px 2px 1px #faa13cd3;
 }
-.miniLogo{
-  background-size: cover;
+
+.hCarusel {
+    color: white;
+    text-shadow: 2px 2px 1px #faa13cd3;
+}
+
+.cupones {
+    max-width: 400px;
+}
+
+.miniLogo {
+    background-size: cover;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: white;
+    text-shadow: 4px 4px 2px #170C6A;
+    font-family: 'Bangers', cursive;
 }

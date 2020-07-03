@@ -1,26 +1,63 @@
-.main{
+.main {
     padding: auto;
     margin: 0px;
-
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
     align-items: flex-start;
 }
-.contacto{
+
+.contacto {
     flex: 1 2 50%;
     order: 1;
     padding: 25px;
 }
-.form{
+
+.form {
     flex: 1 2 50%;
     order: 2;
 }
-input{
+
+input {
     border-radius: 4px;
     border: none;
 }
-textarea{
+
+textarea {
     border: none;
     border-radius: 4px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: #ffd2bc;
+    text-shadow: 4px 4px 2px #170C6A;
+}
+
+.h1Form {
+    color: white;
+    text-shadow: 2px 2px 3px #0c04478a;
+    background-color: #f76301;
+    border-radius: 20%;
+}
+
+.icon {
+    font-size: 3em;
+    color: #fff5f0;
+}
+
+hr {
+    color: white;
+}
+
+p {
+    font-size: 20px;
+    color: green;
+}
+
+input {
+    border-radius: 25px;
 }

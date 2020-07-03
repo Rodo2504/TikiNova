@@ -1,57 +1,62 @@
 <div class="main m-4 pt-4 pb-5">
-        <div class="contacto">
-            <span style="font-size: 20px;"><mat-icon style="padding-top: 10px; color: darkcyan;">phone</mat-icon> 449-123-45-78</span>
-            <br>
-            <span style="font-size: 20px;"><mat-icon style="padding-top: 10px; color: darkcyan;">location_on</mat-icon>Universidad Autonoma de Aguascalientes </span>
-            <br>
-            <span style="font-size: 20px;"><mat-icon style="padding-top: 10px; color: darkcyan;">email</mat-icon> tikinova123@gmail.com </span>
-        </div>
-        <div class="form">
-            <mat-card style="background-color: gainsboro;">
-                <mat-card-header>
-                    <h1 style="margin: 10px; color: cadetblue;">Envíanos un mensaje</h1>
-                </mat-card-header>
-                <mat-card-content>
-                    <mat-divider></mat-divider>
-                    <form [formGroup]="contactForm" (ngSubmit)="sendto(correo.value,nom.value,msj.value); ">
+    <div class="contacto">
+        <i style="text-align: center;" class="fas fa-phone-square-alt icon"></i>
+        <h2>449 2098-0988</h2>
+        <hr>
+        <br>
+        <i class="fas fa-map-marker-alt icon"></i>
+        <h2>Universidad Autonoma De Aguascalientes</h2>
+        <hr>
+        <br>
+        <i class="fas fa-envelope-square icon"></i>
+        <h2>Tikinova123@gmail.com</h2>
+        <hr>
+        <br>
+    </div>
+    <div style="border-radius: 20%; box-shadow: 10px 10px 20px black" class="form">
+        <mat-card style="background-color: gainsboro;">
+            <mat-card-header>
+                <h1 style="margin: 10px;" class="h1Form">---Envíanos un mensaje---</h1>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-divider></mat-divider>
+                <form [formGroup]="contactForm" (ngSubmit)="sendto(correo.value,nom.value,msj.value); ">
 
 
-                            <br>
-                            <label for="nom">Nombre:</label>
-                            <input type="text" #nom style="width: 100%;" formControlName="nom" required>
+                    <br>
+                    <label for="nom">Nombre:</label>
+                    <input type="text" #nom style="width: 100%;" formControlName="nom" required>
 
-                            <br>
-                            <br>
-                            <label>Elige un asunto:</label>
-                            <select formControlName="select" [(ngModel)]="seleccionado">
+                    <br>
+                    <br>
+                    <label>Elige un asunto:</label>
+                    <select style="border-radius: 20px; width: 250px; text-align: center;" formControlName="select" [(ngModel)]="seleccionado">
                               <option [value]="item" *ngFor="let item of asuntos">{{item}}</option>
                               </select>
 
-                            <br>
-                            <label for="correo">Correo:</label>
-                            <input type="text" #correo style="width: 100%;" name="correo" formControlName="correo"
-                             [class.is-invalid] = "contactForm.get('correo').invalid && contactForm.get('correo').touched" class="form-control">
-                             <div *ngIf="contactForm.controls['correo'].invalid && (contactForm.controls['correo'].dirty || contactForm.controls['correo'].touched)"
-                             class="invalid-feedback">
-                               Ingresa un email correcto.
-                               <div *ngIf="contactForm.controls['correo'].errors.required">
-                                 El email debe ser requerido
-                               </div>
-                             </div>
+                    <br>
+                    <label for="correo">Correo:</label>
+                    <input type="text" #correo style="width: 100%;" name="correo" formControlName="correo" [class.is-invalid]="contactForm.get('correo').invalid && contactForm.get('correo').touched" class="form-control">
+                    <div *ngIf="contactForm.controls['correo'].invalid && (contactForm.controls['correo'].dirty || contactForm.controls['correo'].touched)" class="invalid-feedback">
+                        Ingresa un email correcto.
+                        <div *ngIf="contactForm.controls['correo'].errors.required">
+                            El email debe ser requerido
+                        </div>
+                    </div>
 
-                            <br>
-                            <label for="msj">Mensaje:</label>
-                            <textarea #msj cols="50" rows="8" style="width: 100%;" name="msj" formControlName="msj"></textarea>
+                    <br>
+                    <label for="msj">Mensaje:</label>
+                    <textarea #msj cols="50" rows="8" style="width: 100%;" name="msj" formControlName="msj"></textarea>
 
 
-                        <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">Enviar</button>
-                        <br>
-                        <div *ngIf="enviando" class="animated fadeIn" style="color:seagreen;">Enviando... <i class="fas fa-sync fa-spin"></i></div>
-                        <p *ngIf="enviadoStatus" style="color:seagreen;" >¡Tu correo ha sido enviado!</p>
-                    </form>
-                </mat-card-content>
-            </mat-card>
-        </div>
+                    <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">Enviar</button>
+                    <br>
+                    <div *ngIf="enviando" class="animated fadeIn" style="color:seagreen;">Enviando... <i class="fas fa-sync fa-spin"></i></div>
+                    <br>
+                    <hr>
+                    <p *ngIf="enviadoStatus" style="color:seagreen;">¡Tu correo ha sido enviado!</p>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>
-
-
