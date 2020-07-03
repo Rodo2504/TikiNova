@@ -1,13 +1,14 @@
 <div class="container-fluid">
     <div class="row m-4">
         <div class="col-lg">
-            <h1 style="text-align: center; width: 100%; font-size: 35px; font-family: 'Oswald', sans-serif;">"Te lo llevamos en caliente"</h1>
+            <h3 class="demotext">"Te lo llevamos en caliente"</h3>
             <br>
             <h1 #textoh style="font-size: 4em; font-family: cursive;">¿Quienes somos?</h1>
             <br>
             <p style="font-size: 25px;" #textoh1>
                 Somos un restaurante tradicional TIKI, con el objetivo principal de mostrar la variedad de platillos que existen de este estilo. En esta página web ofrecemos la oportunidad de realizar pedidos en linea. Contamos con algunos descuentos.
             </p>
+            <hr>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-secondary-dark">
                 <input type="radio" name="options" id="option1" autocomplete="off" (click)="start(textoh.innerHTML,textoh1.innerHTML)">
@@ -21,8 +22,9 @@
               </label>
             </div>
         </div>
+        <hr>
         <div class="col-lg item1-2">
-            <img style="border-radius: 20%; box-shadow: 15px 15px 30px grey;" src="../../../assets/tiki.jpg" width="50%" alt="">
+            <img style="border-radius: 20%; box-shadow: 15px 15px 30px grey; width: 80%; height: 80%;" src="../../../assets/tiki.jpg" alt="">
             <!--<mat-card class="cupones">
               <mat-card-header class="miniLogo">
                 <div mat-card-avatar><img src="../../../assets/cabezaTiki.png"  width="50px" height="50px" alt=""></div>
@@ -39,8 +41,7 @@
 
         </div>
     </div>
-
-
+    <hr>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="box-shadow: 10px 10px 40px grey;">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>

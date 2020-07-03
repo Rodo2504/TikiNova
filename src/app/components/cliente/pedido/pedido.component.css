@@ -1,18 +1,28 @@
-.paccord{
+.paccord {
     width: 80%;
     text-align: justify;
     font-size: 13px;
     color: #ffffff;
 }
-.h{
+
+.h {
     color: #ffffff;
     font-size: 17px;
 }
-.panel{
+
+.demotext {
+    color: #FFFFFF;
+    text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00;
+    font-size: 35px;
+    text-align: left;
+}
+
+.panel {
     margin: 20px;
     background-color: #E98108;
     padding: 10px;
 }
-.card-header{
+
+.card-header {
     background-color: #E98108;
 }

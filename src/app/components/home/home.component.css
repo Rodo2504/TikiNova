@@ -38,11 +38,15 @@ p {
 
 p,
 h1,
-h2,
-h3,
-h4,
-h5 {
+h2 {
     color: white;
     text-shadow: 4px 4px 2px #170C6A;
     font-family: 'Bangers', cursive;
+}
+
+.demotext {
+    color: #FFFFFF;
+    text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00;
+    font-size: 35px;
+    text-align: center;
 }

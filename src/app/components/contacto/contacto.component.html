@@ -16,7 +16,7 @@
     <div style="border-radius: 20%; box-shadow: 10px 10px 20px black" class="form">
         <mat-card style="background-color: gainsboro;">
             <mat-card-header>
-                <h1 style="margin: 10px;" class="h1Form">---Envíanos un mensaje---</h1>
+                <h3 class="demotext" style="margin: 10px;">Envíanos un mensaje</h3>
             </mat-card-header>
             <mat-card-content>
                 <mat-divider></mat-divider>
@@ -29,7 +29,7 @@
 
                     <br>
                     <br>
-                    <label>Elige un asunto:</label>
+                    <label>Elige un asunto: </label>
                     <select style="border-radius: 20px; width: 250px; text-align: center;" formControlName="select" [(ngModel)]="seleccionado">
                               <option [value]="item" *ngFor="let item of asuntos">{{item}}</option>
                               </select>

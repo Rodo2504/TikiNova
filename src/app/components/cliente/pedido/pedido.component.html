@@ -1,58 +1,55 @@
 <div class="container mt-5">
-    <h1 style="color: white;
-  text-shadow: 4px 4px 2px #170C6A;">Nuestro Menu</h1>
-    <div class="row mt-2">
-        <div class="col-md-8">
-            <div class="container">
+    <h1 class="demotext">Nuestro Menu</h1>
+    <div class="row mt-2 ">
+        <div class="col-md-8 ">
+            <div class="container ">
 
-                <mat-accordion class="acordion" *ngFor="let dato of todosdatos">
-                    <mat-expansion-panel class="panel">
-                        <mat-expansion-panel-header class="h">
+                <mat-accordion class="acordion " *ngFor="let dato of todosdatos ">
+                    <mat-expansion-panel class="panel ">
+                        <mat-expansion-panel-header class="h ">
                             {{dato.info.Nombre}}
                         </mat-expansion-panel-header>
                         <mat-divider></mat-divider>
-                        <p class="paccord">{{dato.info.Descripcion}}</p>
-                        <button class="btn btn-danger" (click)="agregar(dato.id)">Agregar</button>
+                        <p class="paccord ">{{dato.info.Descripcion}}</p>
+                        <button class="btn btn-danger " (click)="agregar(dato.id) ">Agregar</button>
                     </mat-expansion-panel>
                 </mat-accordion>
             </div>
         </div>
-        <div class="col-md-4 mt-8 mb-5">
-            <div class="card" style="box-shadow: 4px 4px 6px grey; border-radius: 20px; ">
-                <h2 style="color: white;
-                text-shadow: 4px 4px 2px #170C6A; border-radius: 20px; text-align: center;" class="card-header block">Mi Orden</h2>
-                <div class="card-body">
-                    <ng-container *ngIf="ordeno">
+        <div class="col-md-4 mt-8 mb-5 ">
+            <div class="card " style="box-shadow: 4px 4px 6px grey; border-radius: 20px; ">
+                <h2 style="border-radius: 20px; text-align: center; font-size: 20px;" class="card-header block demotext">Mi Orden</h2>
+                <div class="card-body ">
+                    <ng-container *ngIf="ordeno ">
 
-                        <p class="card-title" *ngFor="let platillo of carrito">
-                            <a href="javascript:void(0)" (click)="quitar(platillo.row)"><i class="fas fa-times" style="color: red;"></i></a> {{platillo.Nombre}} ---------------------------- ${{platillo.Precio}}
+                        <p class="card-title " *ngFor="let platillo of carrito ">
+                            <a href="javascript:void(0) " (click)="quitar(platillo.row) "><i class="fas fa-times " style="color: red; "></i></a> {{platillo.Nombre}} ---------------------------- ${{platillo.Precio}}
                         </p>
                     </ng-container>
-                    <p class="card-title">
-                        <ng-container *ngIf="validado">
-                            <span style="color: red; text-decoration: line-through;">Total $ {{totalprov}}</span>
+                    <p class="card-title ">
+                        <ng-container *ngIf="validado ">
+                            <span style="color: red; text-decoration: line-through; ">Total $ {{totalprov}}</span>
                         </ng-container> Total $ {{total}}</p>
-                    <button class="btn btn-success btn-block" [disabled]="carrito.length==0" (click)="crearO()">Crear Orden</button>
+                    <button class="btn btn-success btn-block " [disabled]="carrito.length==0 " (click)="crearO() ">Crear Orden</button>
                 </div>
             </div>
-            <div class="container mt-5">
-                <button class="btn btn-block btn-info mt-5" [disabled]="carrito.length==0" (click)="tirar()">Ruleta de Descuento</button>
+            <div class="container mt-5 ">
+                <button class="btn btn-block btn-info mt-5 " [disabled]="carrito.length==0 " (click)="tirar() ">Ruleta de Descuento</button>
 
                 <hr>
-                <ng-container *ngIf="tiroruleta">
-                    <app-qr style="text-align: center;"></app-qr>
+                <ng-container *ngIf="tiroruleta ">
+                    <app-qr style="text-align: center; "></app-qr>
                 </ng-container>
 
-                <p style="color: white;
-                text-shadow: 4px 4px 2px #170C6A;" class="mt-3">Ingresa el Codigo del QR: (Una vez Validado ya no se aplicara descuento a los productos que agregues.)
-                    <ng-container *ngIf="validado">
-                        <i class="fas fa-check" style="color: greenyellow;"></i>
+                <p style="color: white; text-shadow: 4px 4px 2px #170C6A; " class="mt-3 ">Ingresa el Codigo del QR: (Una vez Validado ya no se aplicara descuento a los productos que agregues.)
+                    <ng-container *ngIf="validado ">
+                        <i class="fas fa-check " style="color: greenyellow; "></i>
                     </ng-container>
-                    <ng-container *ngIf="novalidado"><i class="fas fa-times" style="color: red;"></i></ng-container>
+                    <ng-container *ngIf="novalidado "><i class="fas fa-times " style="color: red; "></i></ng-container>
                 </p>
-                <input type="text" class="form-control" [disabled]="carrito.length==0" [(ngModel)]="validi">
-                <ng-container *ngIf="tiroruleta">
-                    <button class="btn btn-block btn-success" (click)="validar()" [disabled]="validado">Validar</button>
+                <input type="text " class="form-control " [disabled]="carrito.length==0 " [(ngModel)]="validi ">
+                <ng-container *ngIf="tiroruleta ">
+                    <button class="btn btn-block btn-success " (click)="validar() " [disabled]="validado ">Validar</button>
                 </ng-container>
             </div>
         </div>

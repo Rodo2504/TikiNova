@@ -9,3 +9,10 @@ h3 {
     border-radius: 20px;
     box-shadow: 15px 15px 30px grey;
 }
+
+.demotext {
+    color: #FFFFFF;
+    text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00;
+    font-size: 35px;
+    text-align: center;
+}
