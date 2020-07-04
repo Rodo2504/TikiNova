@@ -29,6 +29,7 @@ export class GraficaComponent implements OnInit{
     scaleShowVerticalLines: true,
     responsive: true
 
+
   };
   public barChartLabels: string[] = [];
   public barChartType: string = 'bar';

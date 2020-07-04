@@ -3,19 +3,27 @@
     <button class="myButton" (click)="crearGraf()">Generar Grafica</button>
   </div>
 
-  <div class="grafica">
+  <div class="grafica" class="row">
+
     <ng-container *ngIf="mostrar">
+
       <div style="display: block; width: 50%; font-family: cursive;" class="col">
-        <canvas
-          baseChart
-          [datasets]="barChartData"
-          [labels]="barChartLabels"
-          [options]="barChartOptions"
-          [legend]="barChartLegend"
-          [chartType]="barChartType"
-          [colors]="chartColors"
-        >
-        </canvas>
+        <br>
+        <div class="card border-dark mb-3">
+
+          <div class="card-body text-dark">
+            <canvas
+            baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="chartColors"
+          >
+          </canvas>
+          </div>
+        </div>
       </div>
       <div class="col" style="font-family: cursive; font-size: 18px;">
 
