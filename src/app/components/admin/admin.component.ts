@@ -29,7 +29,7 @@ export class AdminComponent implements OnInit {
         // tslint:disable-next-line: forin
         for (let prueba2 in objeto) {
           this.uno = true;
-          this.valores += `<p class="card-text">${prueba2}: ${objeto[prueba2]}</p>`;
+          this.valores += `<p class="card-text" style="font-family: cursive; font-size: 15px;">${prueba2}: ${objeto[prueba2]}</p>`;
         }
         this.valores += '</div></div>';
       }

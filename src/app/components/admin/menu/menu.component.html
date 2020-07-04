@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row mt-5">
-        <div class="col-md-6">
-            <div class="container">
-                <h3>Platillos</h3>
-                    <table class="table">
-                        <thead>
+        <div class="col-md-8">
+            <div class="container-fluid">
+                <h3 class="demotext">Platillos</h3>
+                    <table class="table table-striped table-light table-bordered">
+                        <thead class="thead-dark">
                             <tr>
                                 <th scope="col">
                                     <a href="javascript:void(0)" (click)="limpiar()"><i class="fas fa-plus-circle" style="color: cornflowerblue;"></i></a>
@@ -31,9 +31,9 @@
                     </table>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="container">
-                <h3>Formulario</h3>
+                <h3 class="demotext">Formulario</h3>
                 <form [formGroup]="menuForm">
                     <div class="form-group">
                         <label for="">Nombre:</label>

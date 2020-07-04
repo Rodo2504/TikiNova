@@ -1,0 +1,15 @@
+.demotext {
+    color: #FFFFFF;
+    text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00;
+    font-size: 35px;
+    text-align: center;
+}
+td{
+    font-family: cursive;
+    font-size: 16px;
+}
+th{
+    font-family: monospace;
+    font-size: 20px;
+    text-align: center;
+}

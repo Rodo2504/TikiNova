@@ -1,9 +1,11 @@
-<div>
-  <button (click)="crearGraf()">Generar Grafica</button>
-  <div class="row">
+<div class="main">
+  <div class="btn">
+    <button class="myButton" (click)="crearGraf()">Generar Grafica</button>
+  </div>
 
+  <div class="grafica">
     <ng-container *ngIf="mostrar">
-      <div style="display: block; width: 50%;" class="col">
+      <div style="display: block; width: 50%; font-family: cursive;" class="col">
         <canvas
           baseChart
           [datasets]="barChartData"
@@ -15,7 +17,7 @@
         >
         </canvas>
       </div>
-      <div class="col">
+      <div class="col" style="font-family: cursive; font-size: 18px;">
 
           <form [formGroup]="checkForm" (ngSubmit)="filtro()" novalidate>
 
